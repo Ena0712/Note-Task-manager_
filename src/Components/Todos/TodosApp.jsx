@@ -81,7 +81,7 @@ function TodosApp() {
     };
 
     const toggleComplete = (id) => {
-        setTodos(prevTodos => prevTodos.map(todo => todo.id === id ? { ...todo, isCompleted: !todo.isCompleted, completedAt: new Date().toISOString() } : todo));
+        setTodos(prevTodos => prevTodos.map(todo => todo.id === id ? { ...todo, isCompleted: !todo.isCompleted, completedAt: !todo.isCompleted ? new Date().toISOString():null, } : todo));
     }
 
     const permanentDelTodo = (id) => {
