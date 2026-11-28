@@ -9,11 +9,11 @@ function TodosList({ activeFolder, searchInput }) {
 
         const matchSearch = todo.text?.toLocaleLowerCase().includes(searchInput.toLocaleLowerCase());
 
-        if (activeFolder === "All Todos" || activeFolder === "All Tasks") return !todo.isDeleted && matchSearch;
-        if (activeFolder === "Pinned Todos") return todo.isPinned && !todo.isDeleted && matchSearch;
-        if (activeFolder === "Pending Todos") return !todo.isCompleted && !todo.isDeleted && matchSearch;
-        if (activeFolder === "Completed Todos") return todo.isCompleted && !todo.isDeleted && matchSearch;
-        if (activeFolder === "Locked Todos") return todo.isLocked && !todo.isDeleted && matchSearch;
+        if (activeFolder === "All Tasks" || activeFolder === "All Tasks") return !todo.isDeleted && matchSearch;
+        if (activeFolder === "Pinned Tasks") return todo.isPinned && !todo.isDeleted && matchSearch;
+        if (activeFolder === "Pending Tasks") return !todo.isCompleted && !todo.isDeleted && matchSearch;
+        if (activeFolder === "Completed Tasks") return todo.isCompleted && !todo.isDeleted && matchSearch;
+        if (activeFolder === "Locked Tasks") return todo.isLocked && !todo.isDeleted && matchSearch;
         if (activeFolder === "Recycle Bin") return todo.isDeleted && matchSearch;
         return !todo.isDeleted && matchSearch;
 
