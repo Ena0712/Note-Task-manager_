@@ -36,8 +36,14 @@ function TodosApp() {
 
     // Load saved notes
     useEffect(() => {
-        const todos = JSON.parse(localStorage.getItem('myTasks'));
-        if (todos && todos.length > 0) setTodos(todos);
+        const saved = JSON.parse(localStorage.getItem('myTasks'));
+        if (saved && saved.length > 0){
+            setTodos(saved.map(({text, ...todo})=>({
+                ...todo,
+                title: todo.title ?? text ?? '',
+                content: todo.content ?? '',
+            })));
+        }
     }, []);
 
     // Save notes to local storage
